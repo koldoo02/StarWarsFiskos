@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+    <title> Page 1 </title>
+</head>
+<body>
+    <h3> Page 1 </h3>
+    <hr/>
+    <form action="{% url 'test2' %}">
+    <select name="peliculaseleccionada">
+        {% for Pelicula in lista_peliculas %}
+        <option value="{{Pelicula.id}}:{{Pelicula.nombre}}"> {{Pelicula.id}}:{{Pelicula.nombre}} </option>
+        {% endfor %}
+        <option value="wookiee">woodsakie</option>
+        <option value="robot">robot</option>
+    </select>
+
+    <button type="submit" value="click">
+    </form>
+</body>
+
+</html>

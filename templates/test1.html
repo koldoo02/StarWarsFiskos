@@ -15,6 +15,14 @@
         <option value="robot">robot</option>
     </select>
 
+    <select name="razaseleccionada">
+        {% for Raza in lista_razas %}
+        <option value="{{Raza.id}}:{{Raza.nombre}}"> {{Raza.id}}:{{Raza.nombre}} </option>
+        {% endfor %}
+        <option value="wookiee">woodsakie</option>
+        <option value="robot">robot</option>
+    </select>
+
     <button type="submit" value="click">
     </form>
 </body>

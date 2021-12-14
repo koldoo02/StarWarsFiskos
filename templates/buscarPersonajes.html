@@ -89,19 +89,21 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="row">
-						{% for Personajes in lista_personajes %}
+					<!--{% for Personajes in lista_personajes %} 
+						<div class="thumb"><a href="#"><img src="{{Personajes.image}}" alt=""></a></div>
+										<h4>{{Personajes.nombre}}</h4>
+										<p>{{Personajes.actor}}</p>
+					-->	
 						<div class="col-md-6 col-lg-4">
 							<div class="feat_property">
 								<div class="details">
 									<div class="tc_content">
-										<div class="thumb"><a href="#"><img src="{{Personajes.image}}" alt=""></a></div>
-										<h4>{{Personajes.nombre}}</h4>
-										<p>{{Personajes.actor}}</p>
+										<h4> {{razaseleccionada}}</h4>
 									</div>
 								</div>
 							</div>
 						</div>
-						{% endfor %}
+					<!-- {% endfor %} -->	
 					</div>
 				</div>
 			</div>

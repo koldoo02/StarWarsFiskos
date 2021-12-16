@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.views.generic import DetailView, ListView
 from .models import Pelicula,Raza,Personaje
 # Create your views here.
 
@@ -28,6 +29,7 @@ def buscarPersonajesRazaYPelicula(request, id_raza, id_pelicula):
 
     return render(request,'buscarPersonajes.html',{'lista_peliculas' : Peliculas,'lista_razas' : razas,'lista_personajes' : personajes})
 
+
 def test1(request):
     peliculas= Pelicula.objects.order_by('id')
     razas= Raza.objects.order_by('id')
@@ -37,3 +39,9 @@ def test1(request):
 def test2(request):
     results=request.GET['peliculaseleccionada']
     return render(request,"test2.html",{'peliculaseleccionada':results})
+
+
+class PersonajeDetailView(DetailView):
+    model = Personaje
+    template_name = 'detallesPersonaje.html'
+

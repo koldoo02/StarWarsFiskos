@@ -27,7 +27,7 @@ class Personaje(models.Model):
  altura = models.FloatField()
  actor = models.CharField(max_length=40)
  peliculas = models.ManyToManyField(Pelicula)
- image = models.ImageField(upload_to='D:\Descargas\StarWarsWeb\StarWarsApp\static\images', default = 'default.jpg')
+ image = models.ImageField(upload_to='static/images/BD', default = 'default.jpg')
  descripcion = models.CharField(max_length=3000)
 
  def __str__(self):

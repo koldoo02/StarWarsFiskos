@@ -4,10 +4,10 @@ from .models import Pelicula,Raza,Personaje
 # Create your views here.
 
 def index(request):
-    peliculas= Pelicula.objects.order_by('id')
-    razas= Raza.objects.order_by('id')
-    personajes= Personaje.objects.order_by('id')   
-    return render(request,'index.html',{'lista_peliculas' : peliculas,'lista_razas' : razas,'lista_personajes' : personajes})
+    peliculas= Pelicula.objects.order_by('id').all()
+    razas= Raza.objects.order_by('id').all()
+    personajes=Personaje.objects.all()
+    return render(request,"index.html",{'lista_peliculas' : peliculas,'lista_razas' : razas,'lista_personajes' : personajes})
 
 
 def test1(request):
@@ -24,17 +24,6 @@ def test2(request):
     
 def buscarPersonajes(request):
     results=request.GET['razaseleccionada']
-    results2=request.GET['peliculaseleccionada']
-    peliculas= Pelicula.objects.order_by('id')
-    razas= Raza.objects.order_by('id')
-    personajes= Personaje.objects.order_by('id') 
-    return render(request,"buscarPersonajes.html",{'razaseleccionada':results,'peliculaseleccionada':results2,'lista_peliculas' : peliculas,'lista_razas' : razas,'lista_personajes' : personajes})
+    results2=request.GET['peliculaseleccionada'] 
+    return render(request,{'razaseleccionada':results,'peliculaseleccionada':results2})
 
-
-def buscarPersonajes2(request):
-    results=request.GET['razaseleccionada']
-    results2=request.GET['peliculaseleccionada']
-    peliculas= Pelicula.objects.order_by('id')
-    razas= Raza.objects.order_by('id')
-    personajes= Personaje.objects.order_by('id') 
-    return render(request,"buscarPersonajes.html",{'razaseleccionada':results,'peliculaseleccionada':results2,'lista_peliculas' : peliculas,'lista_razas' : razas,'lista_personajes' : personajes})

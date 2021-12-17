@@ -35,27 +35,42 @@
 								<div class="home_adv_srch_opt text-center">
 									<div class="wrapper">
 										<div class="home_adv_srch_form">
-											<form class="bgc-white bgct-767 pl30 pt10 pl0-767">
+											<form action="{% url 'buscarPersonajes' %}" class="bgc-white bgct-767 pl30 pt10 pl0-767">
 												<div class="form-row align-items-center">
-													<form action="{% url 'buscarPersonajes' %}">
-														<select name="peliculaseleccionada">
-															{% for Pelicula in lista_peliculas %}
-															<option value="{{Pelicula.id}}:{{Pelicula.nombre}}"> {{Pelicula.id}}:{{Pelicula.nombre}} </option>
-															{% endfor %}
-															<option value="wookiee">woodsakie</option>
-															<option value="robot">robot</option>
-														</select>
-													
-														<select name="razaseleccionada">
-															{% for Raza in lista_razas %}
-															<option value="{{Raza.id}}:{{Raza.nombre}}"> {{Raza.id}}:{{Raza.nombre}} </option>
-															{% endfor %}
-															<option value="wookiee">woodsakie</option>
-															<option value="robot">robot</option>
-														</select>
-													
-														<button type="submit" value="buscarPersonajes">
-														</form>
+												    <div class="col-auto home_form_input mb20-xsd">
+												      	<label class="sr-only">Username</label>
+												      	<div class="input-group style1 mb-2 mb0-767">
+												        	<div class="input-group-prepend">
+												        		<div class="input-group-text pl0 pb0-767">Pelicula</div>
+												        	</div>
+															<div class="select-wrap style1-dropdown">
+														    	<select name="peliculaseleccionada">
+																	{% for Pelicula in lista_peliculas %}
+																	<option value="{{Pelicula.id}}"> {{Pelicula.id}}:{{Pelicula.nombre}} </option>
+																	{% endfor %}
+																</select>
+														    </div>
+												      	</div>
+												    </div>
+												    <div class="col-auto home_form_input">
+												      	<label class="sr-only">Username</label>
+												      	<div class="input-group style2 mb-2 mb0-767">
+												        	<div class="input-group-prepend">
+												        		<div class="input-group-text pb0-767">Raza</div>
+												        	</div>
+															<div class="select-wrap style2-dropdown">
+														    	<select name="razaseleccionada">
+																	{% for Raza in lista_razas %}
+																	<option value="{{Raza.id}}"> {{Raza.id}}:{{Raza.nombre}} </option>
+																	{% endfor %}
+																</select>
+															
+														    </div>
+												      	</div>
+												    </div>
+												    <div class="col-auto home_form_input2">
+												    	<button type="submit" value="click" class="btn search-btn mb-2"><span class="flaticon-loupe"></span></button>
+												    </div>
 												</div>
 											</form>
 										</div>
@@ -251,6 +266,27 @@
 				</div>
 			</div>
 		</div>
+	</section>
+	<section>
+		<form action="{% url 'test2' %}">
+			<select name="peliculaseleccionada">
+				{% for Pelicula in lista_peliculas %}
+				<option value="{{Pelicula.id}}:{{Pelicula.nombre}}"> {{Pelicula.id}}:{{Pelicula.nombre}} </option>
+				{% endfor %}
+				<option value="wookiee">woodsakie</option>
+				<option value="robot">robot</option>
+			</select>
+		
+			<select name="razaseleccionada">
+				{% for Raza in lista_razas %}
+				<option value="{{Raza.id}}:{{Raza.nombre}}"> {{Raza.id}}:{{Raza.nombre}} </option>
+				{% endfor %}
+				<option value="wookiee">woodsakie</option>
+				<option value="robot">robot</option>
+			</select>
+		
+			<button type="submit" value="click">
+			</form>
 	</section>
 
 <a class="scrollToHome" href="#"><i class="fa fa-angle-up"></i></a>

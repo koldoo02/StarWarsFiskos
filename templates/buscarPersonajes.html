@@ -3,11 +3,6 @@
 <html dir="ltr" lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="keywords" content="airbnb, booking, city guide, directory, events, hotel booking, listings, marketing, places, restaurant, restaurant">
-<meta name="description" content="Guido - Directory & Listing HTML Template">
-<meta name="CreativeLayers" content="ATFN">
 <!-- css file -->
 <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%} ">
 <link rel="stylesheet" href="{% static 'css/style.css'%} ">
@@ -31,47 +26,41 @@
 					<div class="home_adv_srch_opt text-center">
 						<div class="wrapper">
 							<div class="home_adv_srch_form">
-								<form class="bgc-white bgct-767 pl30 pt10 pl0-767">
+								<form action="{% url 'test2' %}" class="bgc-white bgct-767 pl30 pt10 pl0-767">
 									<div class="form-row align-items-center">
 										<div class="col-auto home_form_input mb20-xsd">
+											  <label class="sr-only">Username</label>
 											  <div class="input-group style1 mb-2 mb0-767">
 												<div class="input-group-prepend">
 													<div class="input-group-text pl0 pb0-767">Pelicula</div>
 												</div>
 												<div class="select-wrap style1-dropdown">
-													<select name="peliculaa" class="form-control js-searchBox">
+													<select name="peliculaseleccionada">
 														{% for Pelicula in lista_peliculas %}
-														<option value="">{{Pelicula.id}}. {{Pelicula.nombre}} </option>
-														 {% endfor %}
+														<option value="{{Pelicula.id}}:{{Pelicula.nombre}}"> {{Pelicula.id}}:{{Pelicula.nombre}} </option>
+														{% endfor %}
 													</select>
 												</div>
 											  </div>
 										</div>
 										<div class="col-auto home_form_input">
-										  
+											  <label class="sr-only">Username</label>
 											  <div class="input-group style2 mb-2 mb0-767">
 												<div class="input-group-prepend">
 													<div class="input-group-text pb0-767">Raza</div>
 												</div>
 												<div class="select-wrap style2-dropdown">
-													<select name="lang" class="form-control js-searchBox2">
-
+													<select name="razaseleccionada">
 														{% for Raza in lista_razas %}
-															   <option value="{{Raza.id}}"{% if Raza == raza_seleccionada %}selected="selected"{% endif %}>{{Raza.id}}. {{Raza.nombre}}
-															   </option>
+														<option value="{{Raza.id}}:{{Raza.nombre}}"> {{Raza.id}}:{{Raza.nombre}} </option>
 														{% endfor %}
-
 													</select>
+												
 												</div>
 											  </div>
 										</div>
-										<div  class="col-auto home_form_input2">
-
-											<button method=POST  type="submit" name="search" value="{" class="btn search-btn mb-2">
-											
-											</span></button>
-											
-									   
+										<div class="col-auto home_form_input2">
+											<button type="submit" value="click" class="btn search-btn mb-2"><span class="flaticon-loupe"></span></button>
 										</div>
 									</div>
 								</form>
@@ -85,18 +74,26 @@
 
 	<!-- Listing Grid View -->
 	<section class="our-listing pb30-991">
+		<h4>{{peliculaseleccionada}}</h4>
+		<h4>{{razaseleccionada}}</h4>
+		{% for Personaje in lista_personajes %}
+		<h4>{{Personajes.nombre}}</h4>
+		{% endfor %}
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="row">
-						{% for Personajes in lista_personajes %}
+						{% for Personaje in lista_personajes %}
 						<div class="col-md-6 col-lg-4">
 							<div class="feat_property">
 								<div class="details">
 									<div class="tc_content">
-										<div class="thumb"><a href="#"><img src="{{Personajes.image}}" alt=""></a></div>
+										{% if Personajes.nombre == C3PO %}
+										<div class="thumb"><a href="#"><img src="{{Personajes.image.url}}" alt=""></a></div>
 										<h4>{{Personajes.nombre}}</h4>
 										<p>{{Personajes.actor}}</p>
+										{% else %}
+										{% endif %}
 									</div>
 								</div>
 							</div>
